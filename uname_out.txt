@@ -1,0 +1,6 @@
+Team: Isabel Morales Sirgo (imoralessirgo)
+      Joseph Cybul (jcybul)
+
+
+
+Linux isabel-VirtualBox 4.4.185imoralessirgo #1 SMP Mon Sep 2 02:43:45 EDT 2019 i686 i686 i686 GNU/Linux

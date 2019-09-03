@@ -1,0 +1,106 @@
+Team: Isabel Morales Sirgo (imoralessirgo)
+      Joseph Cybul (jcybul)
+
+
+
+
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: primary-color
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: secondary-color
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: color-shading-type
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: show-notifications
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: picture-options
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: show-full-name-in-top-bar
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: picture-uri
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-command-line
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-application-handlers
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: user-administration-disabled
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-printing
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-log-out
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-print-setup
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-save-to-disk
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: picture-opacity
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: primary-color
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: secondary-color
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: color-shading-type
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: show-notifications
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: picture-options
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: show-full-name-in-top-bar
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: picture-uri
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-command-line
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-application-handlers
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: user-administration-disabled
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-printing
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-log-out
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-print-setup
+Sep  2 13:54:22 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** (gnome-screensaver:1792): WARNING **: Config key not handled: disable-save-to-disk
+Sep  2 13:54:22 isabel-VirtualBox systemd[1]: Started Locale Service.
+Sep  2 13:54:22 isabel-VirtualBox dbus[726]: [system] Successfully activated service 'org.freedesktop.locale1'
+Sep  2 13:54:22 isabel-VirtualBox gnome-session[1737]: SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+Sep  2 13:54:22 isabel-VirtualBox gnome-session[1737]: SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+Sep  2 13:54:22 isabel-VirtualBox gnome-session[1737]: SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+Sep  2 13:54:23 isabel-VirtualBox gnome-session-binary[1737]: Entering running state
+Sep  2 13:54:23 isabel-VirtualBox gnome-session[1737]: (process:1944): indicator-application-service-WARNING **: Unable to get watcher name 'org.kde.StatusNotifierWatcher'
+Sep  2 13:54:23 isabel-VirtualBox gnome-session[1737]: (process:1944): indicator-application-service-WARNING **: Name Lost
+Sep  2 13:54:23 isabel-VirtualBox dbus[726]: [system] Activating via systemd: service name='org.freedesktop.UDisks2' unit='udisks2.service'
+Sep  2 13:54:23 isabel-VirtualBox systemd[1]: Starting Disk Manager...
+Sep  2 13:54:23 isabel-VirtualBox udisksd[1996]: udisks daemon version 2.1.7 starting
+Sep  2 13:54:23 isabel-VirtualBox systemd[1]: Starting Snappy daemon...
+Sep  2 13:54:23 isabel-VirtualBox dbus[726]: [system] Successfully activated service 'org.freedesktop.UDisks2'
+Sep  2 13:54:23 isabel-VirtualBox systemd[1]: Started Disk Manager.
+Sep  2 13:54:23 isabel-VirtualBox udisksd[1996]: Acquired the name org.freedesktop.UDisks2 on the system message bus
+Sep  2 13:54:23 isabel-VirtualBox udisksd[1996]: Cleaning up mount point /media/isabel/VBox_GAs_6.0.8 (device 11:0 is not mounted)
+Sep  2 13:54:23 isabel-VirtualBox snapd[2002]: AppArmor status: apparmor is enabled and all features are available
+Sep  2 13:54:23 isabel-VirtualBox snapd[2002]: daemon.go:379: started snapd/2.39.2ubuntu0.2 (series 16; classic) ubuntu/16.04 (i386) linux/4.4.185imoralessirgo.
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859939] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859945] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859947] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859951] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859952] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859955] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859956] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859958] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859959] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859962] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859963] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859966] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859967] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859970] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859971] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859973] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859974] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859977] blk_update_request: I/O error, dev loop0, sector 0
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859978] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox kernel: [   21.859982] Buffer I/O error on dev loop0, logical block 0, async page read
+Sep  2 13:54:23 isabel-VirtualBox systemd[1]: Started Snappy daemon.
+Sep  2 13:54:23 isabel-VirtualBox dbus[726]: [system] Activating via systemd: service name='org.freedesktop.fwupd' unit='fwupd.service'
+Sep  2 13:54:23 isabel-VirtualBox systemd[1]: Starting Firmware update daemon...
+Sep  2 13:54:24 isabel-VirtualBox org.gtk.vfs.AfcVolumeMonitor[1592]: Volume monitor alive
+Sep  2 13:54:24 isabel-VirtualBox kernel: [   23.003317] ISO 9660 Extensions: Microsoft Joliet Level 3
+Sep  2 13:54:25 isabel-VirtualBox kernel: [   23.021987] ISO 9660 Extensions: RRIP_1991A
+Sep  2 13:54:25 isabel-VirtualBox udisksd[1996]: Mounted /dev/sr0 at /media/isabel/VBox_GAs_6.0.8 on behalf of uid 1000
+Sep  2 13:54:27 isabel-VirtualBox fwupd[2039]: (fwupd:2039): Fu-WARNING **: FuMain: failed to get USB context: failed to init libusb: Other error [-99]
+Sep  2 13:54:27 isabel-VirtualBox systemd[1]: fwupd.service: Main process exited, code=exited, status=1/FAILURE
+Sep  2 13:54:27 isabel-VirtualBox systemd[1]: Failed to start Firmware update daemon.
+Sep  2 13:54:27 isabel-VirtualBox systemd[1]: fwupd.service: Unit entered failed state.
+Sep  2 13:54:27 isabel-VirtualBox systemd[1]: fwupd.service: Failed with result 'exit-code'.
+Sep  2 13:54:28 isabel-VirtualBox snapd[2002]: daemon.go:611: gracefully waiting for running hooks
+Sep  2 13:54:28 isabel-VirtualBox snapd[2002]: daemon.go:613: done waiting for running hooks
+Sep  2 13:54:28 isabel-VirtualBox snapd[2002]: daemon stop requested to wait for socket activation
+Sep  2 13:54:31 isabel-VirtualBox org.gnome.ScreenSaver[1592]: ** Message: Lost the name, shutting down.
+Sep  2 13:54:35 isabel-VirtualBox pulseaudio[1871]: [pulseaudio] bluez5-util.c: GetManagedObjects() failed: org.freedesktop.DBus.Error.TimedOut: Failed to activate service 'org.bluez': timed out
+Sep  2 13:54:35 isabel-VirtualBox pulseaudio[1246]: [pulseaudio] bluez5-util.c: GetManagedObjects() failed: org.freedesktop.DBus.Error.TimedOut: Failed to activate service 'org.bluez': timed out
+Sep  2 13:54:43 isabel-VirtualBox org.gnome.zeitgeist.Engine[1592]: ** (zeitgeist-datahub:2230): WARNING **: zeitgeist-datahub.vala:229: Unable to get name "org.gnome.zeitgeist.datahub" on the bus!
+Sep  2 13:56:10 isabel-VirtualBox systemd[1]: Stopping User Manager for UID 108...
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Stopped target Default.
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Stopped target Basic System.
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Stopped target Sockets.
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Stopped target Paths.
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Reached target Shutdown.
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Starting Exit the Session...
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Stopped target Timers.
+Sep  2 13:56:10 isabel-VirtualBox systemd[1141]: Received SIGRTMIN+24 from PID 2322 (kill).
+Sep  2 13:56:10 isabel-VirtualBox systemd[1]: Stopped User Manager for UID 108.
+Sep  2 13:56:10 isabel-VirtualBox systemd[1]: Removed slice User Slice of lightdm.
+Sep  2 13:57:42 isabel-VirtualBox kernel: [  220.596317] 'Hello, world!' -- syscall1
+Sep  2 13:57:42 isabel-VirtualBox kernel: [  220.596336] 'Hello, world!' -- syscall2
+Sep  2 13:57:42 isabel-VirtualBox kernel: [  220.596340] 'Hello, world!' -- syscall3
