@@ -56,16 +56,17 @@ asmlinkage long new_sys_cs3013_syscall1(void) {
 asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	int flag = 0;
 	struct task_struct *task = current;
-	struct processinfo *kinfo;
+	struct processinfo kinfo;
 	if(copy_from_user(&kinfo,info, sizeof( info))){
 		return EFAULT;
 	}
 	// get pids 
-	kinfo->state = (pid_t) &task->state;
-	kinfo->pid = (pid_t) &task->pid;
-	kinfo->parent_pid = (pid_t) &task->real_parent->pid;
+	kinfo.state = (pid_t) task->state;
+	kinfo.pid = (pid_t) task->pid;
+	kinfo.parent_pid = (pid_t) task->real_parent->pid;
 	
-	printk(KERN_INFO "State: %d\n",(int)kinfo->state);
+	printk(KERN_INFO "parent id: %ld\n", kinfo.parent_pid);
+	printk(KERN_INFO "State: %ld\n",kinfo.state);
 	printk(KERN_INFO "\n\n\n\n\n\n\n");
 /*
 	&info->youngest_child = &task->p_cptr->pid;
@@ -74,7 +75,7 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	&info->uid = &task->uid;
 */
 	// set times
-	kinfo->start_time = timespec_to_ns((struct timespec*)&task->real_start_time);
+	kinfo.start_time = timespec_to_ns((struct timespec*)&task->real_start_time);
 	if(copy_to_user(info,&kinfo, sizeof(kinfo))){
 		return EFAULT;
 	}			

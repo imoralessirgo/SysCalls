@@ -22,7 +22,12 @@ int main () {
         printf("\tcs3013_syscall2: %ld\n", testCall2(&test_info));
 	
 	getrusage(test_info.pid,&usage);
-
+	double ucpu =0;
+	double scpu =0;
+	 ucpu = ((double) usage.ru_utime.tv_sec * (double)1000000) + ((double) usage.ru_utime.tv_usec);
+	 scpu = ((double) usage.ru_stime.tv_sec * (double)1000000) + ((double) usage.ru_stime.tv_usec);
+	
+	
 	printf("The current state of the process: %d \n",test_info.state);
 	printf("The Process PID is: %d \n",test_info.pid);
 	printf("The Parent PID is: %d\n", test_info.parent_pid);	
