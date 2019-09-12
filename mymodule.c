@@ -33,18 +33,18 @@ asmlinkage long (*ref_sys_cs3013_syscall2)(struct processinfo *info);
 /*asmlinkage long new_sys_open(const char *filename,int flags,umode_t mode){
 	unsigned int regular_user = 1000;
 	unsigned int usr = current_uid().val;
-	if(usr >= regular_user){
+	/*if(usr >= regular_user){
 		printk(KERN_INFO "User %d is opening file: %s\n",usr,filename);
-	}
+	}*/
 	return ref_sys_open(filename,flags,mode);
 }
 
 asmlinkage long new_sys_close(unsigned int fd){
 	unsigned int regular_user = 1000;
 	unsigned int usr = current_uid().val;
-	if(usr >= regular_user){
+	/*if(usr >= regular_user){
 		printk(KERN_INFO "User %d is closig file descriptor: %d",usr,fd);
-	}
+	}*/
 	return ref_sys_close(fd);
 }
 
@@ -56,11 +56,18 @@ asmlinkage long new_sys_cs3013_syscall1(void) {
 asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	int flag = 0;
 	struct task_struct *task = current;
-	
+	struct processinfo kinfo;
+	if(copy_from_user(&kinfo,info, sizeof( info))){
+		return EFAULT;
+	}
 	// get pids 
-	info->state = (pid_t) &task->state;
-	info->pid = (pid_t) &task->pid;
-	info->parent_pid = (pid_t) &task->real_parent->pid;
+	kinfo.state = (pid_t) task->state;
+	kinfo.pid = (pid_t) task->pid;
+	kinfo.parent_pid = (pid_t) task->real_parent->pid;
+	
+	printk(KERN_INFO "parent id: %ld\n", kinfo.parent_pid);
+	printk(KERN_INFO "State: %ld\n",kinfo.state);
+	printk(KERN_INFO "\n\n\n\n\n\n\n");
 /*
 	&info->youngest_child = &task->p_cptr->pid;
 	&info->younger_sibling = &task->p_ysptr->pid;
@@ -68,8 +75,10 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	&info->uid = &task->uid;
 */
 	// set times
-	info->start_time = timespec_to_ns((struct timespec*)&task->real_start_time);
-		
+	kinfo.start_time = timespec_to_ns((struct timespec*)&task->real_start_time);
+	if(copy_to_user(info,&kinfo, sizeof(kinfo))){
+		return EFAULT;
+	}			
 	return flag;
 }
 
