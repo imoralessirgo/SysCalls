@@ -21,10 +21,10 @@ int main () {
 	
         printf("\tcs3013_syscall2: %ld\n", testCall2(&test_info));
 	
-	getrusage(test_info.pid,&usage);
+	printf("return of rusage: %d\n",getrusage(RUSAGE_SELF,&usage));
 	double ucpu =0;
 	double scpu =0;
-	 ucpu = ((double) usage.ru_utime.tv_sec * (double)1000000) + ((double) usage.ru_utime.tv_usec);
+	 ucpu = ( usage.ru_utime.tv_sec * 1000000) + ( usage.ru_utime.tv_usec);
 	 scpu = ((double) usage.ru_stime.tv_sec * (double)1000000) + ((double) usage.ru_stime.tv_usec);
 	
 	
