@@ -3,6 +3,7 @@
 #include <linux/syscalls.h>
 #include <linux/sched.h>
 #include <linux/time.h>
+#include <linux/list.h>
 
 unsigned long **sys_call_table;
 
@@ -33,18 +34,18 @@ asmlinkage long (*ref_sys_cs3013_syscall2)(struct processinfo *info);
 /*asmlinkage long new_sys_open(const char *filename,int flags,umode_t mode){
 	unsigned int regular_user = 1000;
 	unsigned int usr = current_uid().val;
-	/*if(usr >= regular_user){
+	if(usr >= regular_user){
 		printk(KERN_INFO "User %d is opening file: %s\n",usr,filename);
-	}*/
+	}
 	return ref_sys_open(filename,flags,mode);
 }
 
 asmlinkage long new_sys_close(unsigned int fd){
 	unsigned int regular_user = 1000;
 	unsigned int usr = current_uid().val;
-	/*if(usr >= regular_user){
+	if(usr >= regular_user){
 		printk(KERN_INFO "User %d is closig file descriptor: %d",usr,fd);
-	}*/
+	}
 	return ref_sys_close(fd);
 }
 
@@ -57,26 +58,41 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	int flag = 0;
 	struct task_struct *task = current;
 	struct processinfo kinfo;
-	if(copy_from_user(&kinfo,info, sizeof( info))){
-		return EFAULT;
-	}
-	// get pids 
+	
+
+
+	// get state 
 	kinfo.state = (pid_t) task->state;
+	//get pids
 	kinfo.pid = (pid_t) task->pid;
 	kinfo.parent_pid = (pid_t) task->real_parent->pid;
+
+	//child pid 
+	if(!list_empty(&task->children)){ //check for children
+		//get last element of list (youngest of the children) & extract pid
+		kinfo.youngest_child = list_last_entry(&task->children,struct task_struct,children)->pid;
+	}else{ kinfo.youngest_child = -1;} // if no children set pid to -1
 	
-	printk(KERN_INFO "parent id: %ld\n", kinfo.parent_pid);
-	printk(KERN_INFO "State: %ld\n",kinfo.state);
-	printk(KERN_INFO "\n\n\n\n\n\n\n");
-/*
-	&info->youngest_child = &task->p_cptr->pid;
-	&info->younger_sibling = &task->p_ysptr->pid;
-	&info->older_sibling = &task->p_osptr->pid;
-	&info->uid = &task->uid;
-*/
+
+	/* task_struct.sibling is a doubly linked list, we can acces previous and next values to obtain our processes sibling info */
+	//younger sibling pid
+	if(list_entry(task->sibling.next,struct task_struct, sibling)){ //check next element in list if any
+		kinfo.younger_sibling = list_entry(task->sibling.next,struct task_struct, sibling)->pid; 
+	}else{  kinfo.younger_sibling = -1; } // no younger sibling set pid to -1
+	
+	//older sibling pid
+	if(list_entry(task->sibling.prev,struct task_struct, sibling)){ // check previous element in list if any
+		kinfo.older_sibling = list_entry(task->sibling.prev,struct task_struct, sibling)->pid;
+	}else{ kinfo.older_sibling = -1; }// no older sibling set pid to -1
+	
+	
+	printk(KERN_INFO "parent id: %d\n", kinfo.parent_pid);
+	printk(KERN_INFO "State: %d\n",kinfo.state);
+
+
 	// set times
 	kinfo.start_time = timespec_to_ns((struct timespec*)&task->real_start_time);
-	if(copy_to_user(info,&kinfo, sizeof(kinfo))){
+	if(copy_to_user(info,&kinfo, sizeof kinfo )){
 		return EFAULT;
 	}			
 	return flag;
