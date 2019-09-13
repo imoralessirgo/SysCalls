@@ -60,9 +60,9 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	struct processinfo kinfo;
 	
 
-
 	// get state 
 	kinfo.state = (pid_t) task->state;
+	
 	//get pids
 	kinfo.pid = (pid_t) task->pid;
 	kinfo.parent_pid = (pid_t) task->real_parent->pid;
@@ -86,14 +86,37 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	}else{ kinfo.older_sibling = -1; }// no older sibling set pid to -1
 	
 	
+	/*DEBUG PRINTKS*/
 	printk(KERN_INFO "parent id: %d\n", kinfo.parent_pid);
 	printk(KERN_INFO "State: %d\n",kinfo.state);
 
+	// set uid
+	kinfo.uid = task->real_cred->uid.val;
+	printk(KERN_INFO "uid: %d\n", kinfo.uid);	
+
 
 	// set times
-	kinfo.start_time = timespec_to_ns((struct timespec*)&task->real_start_time);
+	kinfo.start_time = timespec_to_ns(&task->real_start_time);
+	kinfo.user_time = cputime_to_usecs(&task->utime);
+	kinfo.sys_time = cputime_to_usecs(&task->stime);
+	// if no children val will be 0
+	kinfo.cutime = 0;
+	kinfo.cstime = 0;
+
+	//loop over all children processes 
+	if(!list_empty(&task->children)){//if we have children
+		struct list_head *HEAD;
+		list_for_each(HEAD,&task->children){ //built in for each element in given list
+			struct task_struct *child;
+			child = list_entry(HEAD,struct task_struct,children);
+			kinfo.cutime += cputime_to_usecs(&child->utime);
+       			kinfo.cstime += cputime_to_usecs(&child->stime);
+		}
+	}
+
+	
 	if(copy_to_user(info,&kinfo, sizeof kinfo )){
-		return EFAULT;
+		return EFAULT; // Report copy_to_user failure 
 	}			
 	return flag;
 }
