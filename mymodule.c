@@ -117,7 +117,7 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 			kinfo.cutime += cputime_to_usecs(&child->utime);
        			kinfo.cstime += cputime_to_usecs(&child->stime);
 		}
-	}
+	}else{printk(KERN_INFO "NOCHILDDDDD\n");}
 
 	
 	if(copy_to_user(info,&kinfo, sizeof kinfo )){
