@@ -21,8 +21,8 @@ int main () {
 	struct processinfo test_info;
         printf("The return values of the system calls are:\n");
  //	printf("the process id is : %d\n",fork());
-	if(!fork()){
-	wait();
+	if(fork()==0){
+	sleep(5);	
 	return 0;
 
 	}
@@ -33,8 +33,8 @@ int main () {
 	printf("return of rusage: %d\n",getrusage(RUSAGE_SELF,&usage));
 	double ucpu =0;
 	double scpu =0;
-	 ucpu = ( usage.ru_utime.tv_sec * 1000000) + ( usage.ru_utime.tv_usec);
-	 scpu = ((double) usage.ru_stime.tv_sec * (double)1000000) + ((double) usage.ru_stime.tv_usec);
+	ucpu = ( usage.ru_utime.tv_sec * 1000000) + ( usage.ru_utime.tv_usec);
+	scpu = ((double) usage.ru_stime.tv_sec * (double)1000000) + ((double) usage.ru_stime.tv_usec);
 	
 	
 	printf("The current state of the process: %ld \n",test_info.state);
