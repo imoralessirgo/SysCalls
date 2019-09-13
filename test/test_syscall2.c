@@ -37,19 +37,19 @@ int main () {
 	scpu = ((double) usage.ru_stime.tv_sec * (double)1000000) + ((double) usage.ru_stime.tv_usec);
 	
 	
-	printf("The current state of the process: %d \n",test_info.state);
+	printf("The current state of the process: %ld \n",test_info.state);
 	printf("The Process ID is: %d \n",test_info.pid);
 	printf("The Parent PID is: %d\n", test_info.parent_pid);
 	printf("The Process ID of youngest child is: %d\n",test_info.youngest_child);
 	printf("The Process ID of younger Sibling: %d\n", test_info.younger_sibling);
 	printf("The Process ID of older sibling: %d\n", test_info.older_sibling);
 	printf("The User ID of process owner: %d\n", test_info.uid);
-	printf("Process start time since boot: %ld\n", test_info.start_time);
-	printf("CPU time in user mode: %f\n",((double) usage.ru_utime.tv_sec * (double)1000000) + ((double) usage.ru_utime.tv_usec));
+	printf("Process start time since boot: %lld\n", test_info.start_time);
+	printf("CPU time in user mode: %lld\n",test_info.user_time);
 
-	printf("CPU time in system  mode: %f\n",((double) usage.ru_stime.tv_sec * (double)1000000) + ((double) usage.ru_stime.tv_usec));
-	printf("User time of children: %ld\n",test_info.cutime);
-	printf("System time of children: %ld\n", test_info.cstime);
+	printf("CPU time in system  mode: %lld\n",test_info.sys_time);
+	printf("User time of children: %lld\n",test_info.cutime);
+	printf("System time of children: %lld\n", test_info.cstime);
 
 	
         return 0;
