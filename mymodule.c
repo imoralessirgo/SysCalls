@@ -109,6 +109,7 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 		list_for_each(HEAD,&task->children){ //built in for each element in given list
 			struct task_struct *child;
 			child = list_entry(HEAD,struct task_struct,children);
+			printk(KERN_INFO "hello: %d\n", child->pid);
 			kinfo.cutime += cputime_to_usecs(&child->utime);
        			kinfo.cstime += cputime_to_usecs(&child->stime);
 		}
