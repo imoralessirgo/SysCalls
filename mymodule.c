@@ -68,11 +68,11 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	kinfo.parent_pid = (pid_t) task->real_parent->pid;
 
 	//child pid 
-	if(!list_empty(&task->children)){ //check for children
+	/*if(!list_empty(&task->children)){ //check for children
 		//get last element of list (youngest of the children) & extract pid
 		kinfo.youngest_child = list_last_entry(&task->children,struct task_struct,children)->pid;
 	}else{ kinfo.youngest_child = -1;} // if no children set pid to -1
-	
+	*/
 
 	/* task_struct.sibling is a doubly linked list, we can acces previous and next values to obtain our processes sibling info */
 	//younger sibling pid
@@ -107,19 +107,27 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	printk(KERN_INFO "real time:%ld",kinfo.start_time);
 	kinfo.cutime = 0;
 	kinfo.cstime = 0;
+	
 
+	kinfo.youngest_child = -1;
 	//loop over all children processes 
 	if(!list_empty(&task->children)){//if we have children
+	
+		/*while (&task->children.next){
+					
+			printk(KERN_INFO "hello: \n");
+		}*/
 		struct list_head *HEAD;
 		list_for_each(HEAD,&task->children){ //built in for each element in given list
 			struct task_struct *child;
-			child = list_entry(HEAD,struct task_struct,children);
+			child = list_entry(HEAD,struct task_struct,sibling);
+			printk(KERN_INFO "hello i: %d\n", kinfo.youngest_child);
+			if((int)child->pid > kinfo.youngest_child){printk(KERN_INFO "in if \n"); kinfo.youngest_child = child->pid;}
 			printk(KERN_INFO "hello: %d\n", child->pid);
 			kinfo.cutime += cputime_to_usecs(&child->utime);
        			kinfo.cstime += cputime_to_usecs(&child->stime);
 		}
-	}else{printk(KERN_INFO "NOCHILDDDDD\n");}
-
+	}
 	
 	if(copy_to_user(info,&kinfo, sizeof kinfo )){
 		return EFAULT; // Report copy_to_user failure 
