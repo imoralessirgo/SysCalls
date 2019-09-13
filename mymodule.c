@@ -90,8 +90,8 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	/*DEBUG PRINTKS*/
 	printk(KERN_INFO "parent id: %d\n", kinfo.parent_pid);
 	printk(KERN_INFO "youngest child : %d\n", kinfo.youngest_child);	
-	printk(KERN_INFO "younger sibling %d\n", kinfo.younger_sibling);
-	printk(KERN_INFO "older sibling : %d\n", kinfo.older_sibling);
+	//printk(KERN_INFO "younger sibling %d\n", kinfo.younger_sibling);
+	//printk(KERN_INFO "older sibling : %d\n", kinfo.older_sibling);
 	printk(KERN_INFO "State: %d\n",kinfo.state);
 
 	// set uid
@@ -100,7 +100,7 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 
 
 	// set times
-	kinfo.start_time = (long long) timespec_to_ns(&task->start_time);
+	kinfo.start_time = (unsigned long) timespec_to_ns(&task->start_time);
 	kinfo.user_time = cputime_to_usecs(&task->utime);
 	kinfo.sys_time = cputime_to_usecs(&task->stime);
 	// if no children val will be 0
