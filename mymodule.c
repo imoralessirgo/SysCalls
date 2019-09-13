@@ -76,12 +76,12 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 
 	/* task_struct.sibling is a doubly linked list, we can acces previous and next values to obtain our processes sibling info */
 	//younger sibling pid
-	if(list_entry(&task->sibling.next,struct task_struct, sibling)->pid > kinfo.pid && list_entry(&task->sibling.next,struct task_struct, sibling)->pid == 0 ){ //check next element in list if any
+	if(list_entry(&task->sibling.next,struct task_struct, sibling)->pid > kinfo.pid && list_entry(&task->sibling.next,struct task_struct, sibling)->pid != 0 ){ //check next element in list if any
 		kinfo.younger_sibling = list_entry(&task->sibling.next,struct task_struct, sibling)->pid; 
 	}else{  kinfo.younger_sibling = -1; } // no younger sibling set pid to -1
 	
 	//older sibling pid
-	if(list_entry(&task->sibling.prev,struct task_struct, sibling)->pid < kinfo.pid && list_entry(&task->sibling.prev,struct task_struct, sibling)->pid == 0 ){ // check previous element in list if any
+	if(list_entry(&task->sibling.prev,struct task_struct, sibling)->pid < kinfo.pid && list_entry(&task->sibling.prev,struct task_struct, sibling)->pid != 0 ){ // check previous element in list if any
 		kinfo.older_sibling = list_entry(&task->sibling.prev,struct task_struct, sibling)->pid;
 	}else{ kinfo.older_sibling = -1; }// no older sibling set pid to -1
 	
@@ -92,7 +92,7 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	printk(KERN_INFO "youngest child : %d\n", kinfo.youngest_child);	
 	printk(KERN_INFO "younger sibling %d\n", kinfo.younger_sibling);
 	printk(KERN_INFO "older sibling : %d\n", kinfo.older_sibling);
-	printk(KERN_INFO "State: %lld\n",kinfo.state);
+	printk(KERN_INFO "State: %d\n",kinfo.state);
 
 	// set uid
 	kinfo.uid = task->real_cred->uid.val;

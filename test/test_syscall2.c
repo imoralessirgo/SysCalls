@@ -21,13 +21,13 @@ int main () {
 	struct processinfo test_info;
         printf("The return values of the system calls are:\n");
  //	printf("the process id is : %d\n",fork());
-	if(fork()==0){
+/*	if(fork()==0){
 	sleep(5);	
 	return 0;
 
 	}
 
-	else{	
+	else{	*/
         printf("\tcs3013_syscall2: %ld\n", testCall2(&test_info));
 	
 	printf("return of rusage: %d\n",getrusage(RUSAGE_SELF,&usage));
@@ -53,6 +53,6 @@ int main () {
 
 	
         return 0;
-}
+//}
 
 }
