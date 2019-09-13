@@ -100,7 +100,7 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 
 
 	// set times
-	kinfo.start_time = timespec_to_ns(&task->start_time);
+	kinfo.start_time = (long long) timespec_to_ns(&task->start_time);
 	kinfo.user_time = cputime_to_usecs(&task->utime);
 	kinfo.sys_time = cputime_to_usecs(&task->stime);
 	// if no children val will be 0
@@ -112,18 +112,13 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	kinfo.youngest_child = -1;
 	//loop over all children processes 
 	if(!list_empty(&task->children)){//if we have children
-	
-		/*while (&task->children.next){
-					
-			printk(KERN_INFO "hello: \n");
-		}*/
 		struct list_head *HEAD;
 		list_for_each(HEAD,&task->children){ //built in for each element in given list
 			struct task_struct *child;
 			child = list_entry(HEAD,struct task_struct,sibling);
-			printk(KERN_INFO "hello i: %d\n", kinfo.youngest_child);
-			if((int)child->pid > kinfo.youngest_child){printk(KERN_INFO "in if \n"); kinfo.youngest_child = child->pid;}
-			printk(KERN_INFO "hello: %d\n", child->pid);
+			
+			if((int)child->pid > kinfo.youngest_child){kinfo.youngest_child = child->pid;}
+			
 			kinfo.cutime += cputime_to_usecs(&child->utime);
        			kinfo.cstime += cputime_to_usecs(&child->stime);
 		}
