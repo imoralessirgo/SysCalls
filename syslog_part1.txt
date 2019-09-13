@@ -1,0 +1,20 @@
+Sep 13 11:30:40 joseph-VirtualBox kernel: [45340.705089] User 1000 is closig file descriptor: 11
+Sep 13 11:30:40 joseph-VirtualBox kernel: [45340.705616] User 1000 is opening file: /usr/share/icons/ubuntu-mono-dark/status/22/battery-000.svg
+Sep 13 11:30:40 joseph-VirtualBox kernel: [45340.705630] User 1000 is closig file descriptor: 11
+Sep 13 11:30:40 joseph-VirtualBox kernel: [45340.706015] User 1000 is opening file: /usr/share/icons/ubuntu-mono-dark/status/22/battery-000.svg
+Sep 13 11:31:01 joseph-VirtualBox kernel: [45340.706027] User 1000 is closig file descriptor: 11
+Sep 13 11:31:01 joseph-VirtualBox kernel: [45360.961601] User 1000 is opening file: /etc/localtime
+Sep 13 11:31:01 joseph-VirtualBox kernel: [45360.961632] User 1000 is closig file descriptor: 11
+Sep 13 11:31:01 joseph-VirtualBox kernel: [45360.961673] User 1000 is opening file: /etc/localtime
+Sep 13 11:31:15 joseph-VirtualBox kernel: [45360.961682] User 1000 is closig file descriptor: 11
+Sep 13 11:31:15 joseph-VirtualBox kernel: [45374.964090] User 1000 is opening file: /etc/fstab
+Sep 13 11:31:15 joseph-VirtualBox kernel: [45374.964140] User 1000 is closig file descriptor: 13
+Sep 13 11:31:15 joseph-VirtualBox kernel: [45374.964147] User 1000 is opening file: /proc/mounts
+Sep 13 11:31:22 joseph-VirtualBox kernel: [45374.964290] User 1000 is closig file descriptor: 13
+Sep 13 11:31:22 joseph-VirtualBox kernel: [45382.815101] User 1000 is opening file: /home/joseph/.viminfo
+Sep 13 11:31:22 joseph-VirtualBox kernel: [45382.815127] User 1000 is opening file: /home/joseph/.viminfo.tmp
+Sep 13 11:31:22 joseph-VirtualBox kernel: [45382.815496] User 1000 is closig file descriptor: 4
+Sep 13 11:31:30 joseph-VirtualBox kernel: [45382.815504] User 1000 is closig file descriptor: 3User 1000 is closig file descriptor: 4
+Sep 13 11:32:01 joseph-VirtualBox kernel: [45390.394454] User 1000 is closig file descriptor: 5<6>[45420.958077] User 1000 is opening file: /etc/localtime
+Sep 13 11:32:01 joseph-VirtualBox kernel: [45420.958118] User 1000 is closig file descriptor: 11
+Sep 13 11:32:01 joseph-VirtualBox kernel: [45420.958245] User 1000 is opening file: /etc/localtime
