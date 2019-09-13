@@ -86,6 +86,7 @@ asmlinkage long new_sys_cs3013_syscall2(struct processinfo *info){
 	}else{ kinfo.older_sibling = -1; }// no older sibling set pid to -1
 	
 
+
 	/*DEBUG PRINTKS*/
 	printk(KERN_INFO "parent id: %d\n", kinfo.parent_pid);
 	printk(KERN_INFO "youngest child : %d\n", kinfo.youngest_child);	
